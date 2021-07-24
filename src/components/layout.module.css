@@ -1,0 +1,38 @@
+.sidebar {
+  @apply w-0 bg-primary overflow-hidden;
+
+  transition: all ease 0.3s;
+  max-width: 0;
+}
+
+@screen lg {
+  .sidebar {
+    transition: all ease 0.3s;
+    width: 384px;
+    max-width: 384px;
+  }
+}
+
+.list {
+  @apply space-y-6;
+
+  li {
+    @apply px-2 cursor-pointer transition transition-all;
+
+    &:hover {
+      @apply bg-white;
+
+      .subTitle {
+        @apply opacity-100;
+      }
+    }
+
+    > a {
+      @apply flex items-center justify-between;
+
+      .subTitle {
+        @apply inline-block opacity-0 text-gray-500;
+      }
+    }
+  }
+}
