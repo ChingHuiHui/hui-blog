@@ -53,6 +53,16 @@ const Layout = ({ children }) => {
               ))}
             </ul>
           </nav>
+          <div className="absolute bottom-0 left-0 right-0 bg-white px-4">
+            <ul className="flex justify-between">
+              <li>
+                <a>GITHUB</a>
+              </li>
+              <li>RESUME</li>
+              <li>INSTAGRAM</li>
+              <li>LINKEDIN</li>
+            </ul>
+          </div>
         </div>
       </aside>
       <main className="min-h-screen flex-1 bg-red-300">{children}</main>

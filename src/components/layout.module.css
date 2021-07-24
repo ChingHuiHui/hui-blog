@@ -1,14 +1,10 @@
 .sidebar {
-  @apply w-0 bg-primary overflow-hidden;
-
-  transition: all ease 0.3s;
-  max-width: 0;
+  @apply max-w-0 w-0 overflow-hidden lg:overflow-y-auto lg:w-96;
+  @apply transitable bg-primary relative;
 }
 
 @screen lg {
   .sidebar {
-    transition: all ease 0.3s;
-    width: 384px;
     max-width: 384px;
   }
 }

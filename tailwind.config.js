@@ -1,5 +1,6 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
-  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
@@ -13,12 +14,20 @@ module.exports = {
       colors: {
         primary: '#bad3dc',
         secondary: '#833928',
-      }
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.transitable': {
+          '@apply transition-all duration-300': {},
+        },
+      })
+    }),
+  ],
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
 }
