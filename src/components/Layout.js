@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
+import React, { useState } from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import { sidebar, list, subTitle } from './layout.module.css'
+import { sidebar, list, subTitle, isOpen, tag } from './layout.module.css'
 
 const links = [
   {
@@ -22,9 +22,22 @@ const links = [
 ]
 
 const Layout = ({ children }) => {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
+
+  // const { site } = useStaticQuery(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
+
   return (
     <div className="flex">
-      <aside className={sidebar}>
+      <aside className={`${sidebar} ${isSideBarOpen ? isOpen : ''}`}>
+        <div className="backdrop-filter backdrop-grayscale"></div>
         <div className="p-4">
           <div className="space-y-4 mb-6">
             <Link
@@ -53,7 +66,7 @@ const Layout = ({ children }) => {
               ))}
             </ul>
           </nav>
-          <div className="absolute bottom-0 left-0 right-0 bg-white px-4">
+          {/* <div className="absolute bottom-0 left-0 right-0 bg-white px-4">
             <ul className="flex justify-between">
               <li>
                 <a>GITHUB</a>
@@ -62,10 +75,12 @@ const Layout = ({ children }) => {
               <li>INSTAGRAM</li>
               <li>LINKEDIN</li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </aside>
-      <main className="min-h-screen flex-1 bg-red-300">{children}</main>
+      <main className="min-h-screen flex-1 bg-white my-12 lg:my-15">
+        {children}
+      </main>
     </div>
   )
 }
