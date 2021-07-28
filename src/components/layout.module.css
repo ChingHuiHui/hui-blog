@@ -1,6 +1,7 @@
 .sidebar {
   @apply max-w-0 w-0 overflow-hidden lg:overflow-y-auto lg:w-96;
   @apply transitable bg-primary relative;
+  @apply border border-r-8 border-secondary;
 }
 
 @screen lg {
