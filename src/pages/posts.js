@@ -2,7 +2,7 @@ import * as React from 'react'
 import Layout from '../components/Layout'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 
-const IndexPage = () => {
+const Posts = () => {
   const {
     allMdx: { nodes },
   } = useStaticQuery(graphql`
@@ -11,7 +11,6 @@ const IndexPage = () => {
         nodes {
           id
           slug
-          body
           frontmatter {
             title
             date(formatString: "MMMM D, YYYY")
@@ -33,4 +32,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Posts
